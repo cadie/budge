@@ -1,0 +1,71 @@
+nav.navbar.navbar-default {
+  background-color: $white;
+  border: 0;
+  min-height: 100px;
+
+  p {
+    line-height: 90px;
+    font-size: .938rem;
+  }
+
+  .navbar-header {
+
+    a.navbar-brand {
+      height: 60px;
+      padding: 0px;
+      margin: 15px;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+
+    }
+
+  }
+
+}
+
+.navbar-form {
+  margin: 28px 0;
+
+  .form-group {
+    margin-right: 5px;
+  }
+
+  .btn-success {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    padding: 6px 26px;
+    text-transform: uppercase;
+  }
+
+}
+
+// DASHBOARD NAVBAR
+
+#dashboard {
+
+  .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    background-color:$primary-color;
+  }
+
+  .navbar-inverse {
+    background-color: $secondary-color;
+    border:0;
+    border-radius: 0px;
+
+    .navbar-nav>li>a {
+      color:$white;
+    }
+
+  }
+
+  .navbar-brand {
+    padding:10px 15px;
+    img {
+      height:30px;
+    }
+  }
+
+}

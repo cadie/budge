@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Budge | Budgeting Made Simple</title>
+    <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- User Styles -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive" src="assets/imgs/budge-logo.png" alt="Budge | Budgeting Made Simple" title="Budge | Budgeting Made Simple"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2>Welcome <span class="member-name"></span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="sign-up-content content col-md-4 col-md-offset-4">
+
+
+            <a class="navbar-brand" href="/logout">
+        Logout
+      </a>
+
+
+            <p class="small">Welcome to Your Budget <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>, including <a href="">Cookie Use</a>. Others will be able to find you by email or phone number when provided.</p>
+
+        </div>
+
+    </div>
+
+<!-- Beginning of what I added -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <ul class="list-group expense-list">
+                <li class="list-group-item new-item">
+                        <li class="list-group-item new-item2">
+                    <form id="expense-form">
+                    <input class="new-item" placeholder="Add Expense" type="text" />
+                    <input class="new-item2" placeholder="Add Amount" type="text" />
+                    <button type="submit" class="btn btn-default">Budge</button>
+                    </form>
+                </li>
+            </li>
+                <span class="expense-container">
+                </span>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Custom Script -->
+<div class = "row">
+<div class="new-item3" type="text" />
+</div>
+</div>
+
+
+
+     <p>Total: <id="total"></p>
+     <p>Email: {{email}}</p>
+    
+
+<form action="/" method="POST">
+<textarea type="text" name="task"></textarea>
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- End of stuff I added -->
+
+    
+    <footer>
+        <div class="container">
+            <div class="col-md-6">
+                <p><img src="assets/imgs/circle-logo.svg" alt="Budge" class="footer-logo"> &copy; Budge 2017. All Rights Reserved. | <a href="#">Contact Us</a> | <a href="#">Privacy Policy</a></p>
+            </div>
+            <div class="col-md-2 social-media-icons">
+                <a href="#"><img src="assets/imgs/facebook.png" alt="" class="img-responsive"></a>
+                <a href="#"><img src="assets/imgs/twitter.png" alt="" class="img-responsive"></a>
+                <a href="#"><img src="assets/imgs/instagram.png" alt="" class="img-responsive"></a>
+            </div>
+            <div class="col-md-4 store-icons text-right">
+                <img src="assets/imgs/app-store.png" alt="">
+                <img src="assets/imgs/google-play.png" alt="">
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/members.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Budgets | Budge</title>
+  <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- User Styles -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+</head>
+<body id="dashboard">
+
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="assets/imgs/circle-logo.svg" alt="Budge"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">Budgets</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Support</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <div class="content">
+      <div class="container">
+        <div class="col-md-12">
+          <div id="username"></div>
+          <hr>
+        </div>
+        <hr>
+        <div class="col-md-8">
+          <form id="income-form">
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input type="text" class="income form-control" placeholder="Amount to Budget">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4 income-amount-styles">
+          <div class="pull-right">
+            <span class="hidden income-dollarsign">$</span><span id="income-amount"></span>
+          </div>
+        </div>
+
+          <div class="col-md-12">
+              <ul class="list-group expense-list">
+                      <li class="list-group-item new-item2">
+                      <form id="expense-form">
+                        <input class="new-item form-field" placeholder="Add Category" type="text" />
+                        <input class="new-item2 form-field" placeholder="Add Amount" type="text" />
+                        <button type="submit" class="btn btn-default">Budge</button>
+                      </form>
+                  </li>
+              <!-- This is the span container where the items added are populated -->
+              <span class="expense-container">
+              </span>
+            </ul>
+            <div class="results-container">
+              <p>Total of Expenses:
+                <!-- This is the span container where the sum of all of the expenses should be inputted -->
+                <span>$</span><span id="total-expenses"></span>
+              </p>
+              <p>Left Over:
+                <!-- This is where the result of (salary amount - expense amount) should be inputted -->
+                <span>$</span><span id="left-over"></span>
+              </p>
+            </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+
+
+<script>
+  var budgetsList;
+
+  $(document).ready(function(){
+    $.ajax({
+        url: 'api/user_data',
+        success: function(res) {
+            handlebarsFunction(res)
+        }
+    });
+
+      function handlebarsFunction(res){
+        {
+            var source = $("#username-template").html();
+            usernameTemplate = Handlebars.compile(source);
+        }
+
+        {
+            var context = res;
+
+            console.log(context);
+
+            var html = usernameTemplate(context);
+
+            $("#username").html(html);
+        }
+      }
+
+
+  });
+</script>
+
+<script id="username-template" type="text/x-handlebars-template">
+  <h1>{{firstName}}'s Budget</h1>
+</script>
+
+<script id="budget-list-template" type="text/x-handlebars-template">
+  <div class="budget">
+      <div class="col-md-12"><hr></div>
+      <div class="col-md-10">
+        <h2><a href="view-budget.html">{{lastName}}</a></h2>
+        <p>{{firstName}}</p>
+      </div>
+      <div class="col-md-2">
+        <p class="pull-right">{{email}}</p>
+      </div>
+  </div>
+</script>
+
+
+</body>
+</html>
